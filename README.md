@@ -61,11 +61,11 @@ below are the other scripts you can run and what they do
 
 Ok now that you have an idea on how this flows together lets go over some things you might do and how you would go about doing them.
 
-## Freez xyz lib into xyz board and let everyone download that
+## Freeze xyz lib into xyz board and let everyone download that
 So you will want to copy that board from the cpy folder (run main.py to get that). Then make your changes to it and place that into the ./bs_python_boards folder. Now Its very important you place it in the correct folder. When you take it from the cpy repo if it is from ports/nrf it needs to go into the nrf folder. If the folder does not exist just make it but it NEEDS to be spelled the same.
 
-## Freez a lib that is not in CPY
-To freez  another library you can simply add it to the FROZEN_REPO_LIST in cpy_git.py
+## Freeze a lib that is not in CPY
+To freeze  another library you can simply add it to the FROZEN_REPO_LIST in cpy_git.py
 
 ## other code changes
 Above is all that I have implemented But if you want to make random changes to the CPY code base feel free to do so. A few things I would like to ask of you. Make sure that the entry for your code is in misc_file_changes.py (unless another file is better eg: git changes should be in cpy_git.py). And make sure you add something to this file letting others know how to do your cool new change.
@@ -75,7 +75,7 @@ Above is all that I have implemented But if you want to make random changes to t
 * let me know if I need to make any more changes to stay legal
 * Add some boards
 * turn all my sick bash scripts into a make file LOL
-* freez in kmk in some way. But I want it compiled to .mpy
+* freeze in kmk in some way. But I want it compiled to .mpy
 * I am a super python noob I barely know how to setup a python project. This one was setup using pipenv and python 3.9.x we dont have a reqerments.txt I dont know how to make one or if we need one we do have a pipfile tho.
 * github action to add all the .uf2s from ./build_out to git hub releases
 * add colors to the logs (just the python parts)
