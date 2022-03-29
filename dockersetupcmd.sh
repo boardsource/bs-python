@@ -1,0 +1,1 @@
+cd circuitpython&&make fetch-submodules&&pip3 install -r requirements-dev.txt&&pip3 install --upgrade click==7.1.2&&make -C mpy-cross && bash dockerbuildcmd.sh
