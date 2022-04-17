@@ -1,3 +1,7 @@
 cpy/**
+__pycache__/
+debug.log
 !cpy/.gitkeep 
+kmk/**
+!kmk/.gitkeep 
 post_build.sh

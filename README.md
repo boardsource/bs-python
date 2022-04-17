@@ -6,11 +6,12 @@ So the main idea here and how we are doing this differently is we as you can see
 Let me break down what's going on and how you can use this. I will start by going over the code flow then I will tell you what you need to edit (if you need to edit anything) and how you can help out
 
 ## Quick links
-[current boards](supported_boards.md)
+[Current Boards](supported_boards.md)
 
 
 
 ## **important**
+We just got a make file thanks to kdb424 <3 So at this time you can also run everything from the make file and bash scripts 
 All scripts are intended to be run from the root so
 
 **dont** do this
@@ -23,10 +24,17 @@ bash start.sh
 bash scripts/start.sh
 ```
 
+You can also make your builds faster with 
+```
+ make run J=12
+```
+J is your cpu cores 
+
+
 
 
 ## Code flow
-* scipts/start.sh <- entry point
+* scipts/start.sh OR "make run" <- entry point
     * calls main.py
         * main.py <- start of the code
             * cpy_git <- handles all things to do with git
@@ -34,13 +42,13 @@ bash scripts/start.sh
                 * add submodules
             * misc_file_changes <- change cpy code
             * board_mapping <- this moves BS_python boards into the right place in cpy
-                * genarates the build script and post build script
+                * generates the build script and post build script
         * pulls the docker container or uses the one you build (see below)
         * starts the new docker container
             * runs the dockersetupcmd.sh
                 *  this sets up the cloned cpy repo for building
-            * runs the genarated build script that builds all the BS_Python boards
-        * runs the genarated post build script
+            * runs the generated build script that builds all the BS_Python boards
+        * runs the generated post build script
             * this moves all of the built .u2f files into the ./build_out and renames them
 
 
@@ -51,7 +59,7 @@ below are the other scripts you can run and what they do
     * builds docker container
         * that way you only need docker and python you don't need to make sure you can compile cpy
     * tries to push it as well.
-* scripts/clean.sh
+* scripts/clean.sh or "make clean"
     * removes old cpy clones and builds.
 * scripts/bash-container.sh
     * this is mostly for debugging the docker container
@@ -66,19 +74,23 @@ So you will want to copy that board from the cpy folder (run main.py to get that
 
 ## Freeze a lib that is not in CPY
 To freeze  another library you can simply add it to the FROZEN_REPO_LIST in cpy_git.py
+### Frozen libs already available 
+* kmk_firmware
+* Adafruit_CircuitPython_DisplayIO_SSD1306
+* Adafruit_CircuitPython_SSD1306
 
-## other code changes
+## Other code changes
 Above is all that I have implemented But if you want to make random changes to the CPY code base feel free to do so. A few things I would like to ask of you. Make sure that the entry for your code is in misc_file_changes.py (unless another file is better eg: git changes should be in cpy_git.py). And make sure you add something to this file letting others know how to do your cool new change.
 
-## TODO / HELP WANTED / DISCLAMER
+## TODO / HELP WANTED / DISCLAIMER
 * typo / spelling
 * let me know if I need to make any more changes to stay legal
 * Add some boards
-* turn all my sick bash scripts into a make file LOL
-* freeze in kmk in some way. But I want it compiled to .mpy
-* I am a super python noob I barely know how to setup a python project. This one was setup using pipenv and python 3.9.x we dont have a reqerments.txt I dont know how to make one or if we need one we do have a pipfile tho.
+* I am a super python noob I barely know how to setup a python project. This one was setup using pipenv and python 3.9.x we dont have a requirements.txt I dont know how to make one or if we need one we do have a pipfile tho.
 * github action to add all the .uf2s from ./build_out to git hub releases
 * add colors to the logs (just the python parts)
+* inject custom code into circuitpython/supervisor/shared/filesystem.c to change the drive name and default code after we are freezing in kmk we will be able to have a u2f that is for cornes and it comes typing and working perfectly
+
 
 
 
