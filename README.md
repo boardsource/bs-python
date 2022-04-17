@@ -90,10 +90,7 @@ Above is all that I have implemented But if you want to make random changes to t
 * github action to add all the .uf2s from ./build_out to git hub releases
 * add colors to the logs (just the python parts)
 * inject custom code into circuitpython/supervisor/shared/filesystem.c to change the drive name and default code after we are freezing in kmk we will be able to have a u2f that is for cornes and it comes typing and working perfectly
-<<<<<<< HEAD
 
-=======
->>>>>>> 7139b0bc2f8f46512f827d586e03c13ab93db14f
 
 
 
