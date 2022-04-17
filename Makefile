@@ -4,6 +4,8 @@
 # @version 0.4
 
 CPYPREFIX := cpy/circuitpython
+KMKPREFIX := kmk/kmk_firmware
+THIS_DIR := $(dir $(abspath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: default
 default: run
@@ -13,12 +15,15 @@ all: init build
 
 .PHONY: clean
 clean:
-	rm -rf ${CPYPREFIX}
+	sudo rm -rf ${CPYPREFIX}
+	sudo rm -rf ${KMKPREFIX}
 
+J=1
 .PHONY: run
 run:
-	python3 main.py
+	python3 main.py $(J)
 	docker pull boardsource/bs-python
-	docker run -v $(pwd)/build_out:/build_out -v $(pwd)/cpy/circuitpython:/cpy/circuitpython boardsource/bs-python && bash post_build.sh
+	docker run -v ${THIS_DIR}cpy/circuitpython:/cpy/circuitpython boardsource/bs-python 
+	bash post_build.sh
 
 # end

@@ -9,3 +9,4 @@ INTERNAL_FLASH_FILESYSTEM = 1
 
 FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_BLE
 FROZEN_MPY_DIRS += $(TOP)/frozen/Adafruit_CircuitPython_NeoPixel
+# FROZEN_MPY_DIRS += $(TOP)/frozen/kmk
