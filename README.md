@@ -26,7 +26,7 @@ bash scripts/start.sh
 
 
 ## Code flow
-* scipts/start.sh <- enetry point
+* scipts/start.sh <- entry point
     * calls main.py
         * main.py <- start of the code
             * cpy_git <- handles all things to do with git
