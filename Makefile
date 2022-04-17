@@ -4,12 +4,10 @@
 # @version 0.4
 
 CPYPREFIX := cpy/circuitpython
+BUILDOUT := build_out
 
 .PHONY: default
 default: run
-
-.PHONY: all
-all: init build
 
 .PHONY: clean
 clean:
@@ -19,6 +17,7 @@ clean:
 run:
 	python3 main.py
 	docker pull boardsource/bs-python
-	docker run -v $(pwd)/build_out:/build_out -v $(pwd)/cpy/circuitpython:/cpy/circuitpython boardsource/bs-python && bash post_build.sh
+	docker run -v ./${BUILDOUT}:/build_out -v ${CPYPREFIX}:/cpy/circuitpython boardsource/bs-python
+	bash post_build.sh
 
 # end
