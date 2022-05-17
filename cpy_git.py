@@ -3,8 +3,10 @@ import subprocess
 import shutil
 PATH = "./cpy/circuitpython"
 KMK_PATH = "./kmk/kmk_firmware"
+PEGBOARDS_PATH="./pegboards/pegboards"
 REPO_URL = "https://github.com/adafruit/circuitpython.git"
 KMK_REPO_URL = "https://github.com/KMKfw/kmk_firmware"
+PEGBOARDS_REPO_URL="git@github.com:daysgobye/pegBoards.git"
 BRANCH = "7.2.x"
 FROZEN_REPO_LIST = ["https://github.com/adafruit/Adafruit_CircuitPython_DisplayIO_SSD1306.git",
 "https://github.com/adafruit/Adafruit_CircuitPython_SSD1306.git"]
@@ -33,6 +35,7 @@ def git_checkout():
     clean_dir()
     repo = git.Repo.clone_from(REPO_URL, PATH)
     repo.git.checkout(BRANCH)
+    # pegboards_repo = git.Repo.clone_from(PEGBOARDS_REPO_URL, PEGBOARDS_PATH)
     kmk_repo = git.Repo.clone_from(KMK_REPO_URL, KMK_PATH)
     add_frozen_lib(repo)
     move_kmk()

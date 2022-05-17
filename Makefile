@@ -21,6 +21,7 @@ clean:
 J=1
 .PHONY: run
 run:
+	clean
 	python3 main.py $(J)
 	docker pull boardsource/bs-python
 	docker run -v ${THIS_DIR}cpy/circuitpython:/cpy/circuitpython boardsource/bs-python 

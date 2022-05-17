@@ -1,0 +1,22 @@
+{
+    "board": "bs_python_boards/raspberrypi/boardsouce_lulu",
+    "frozen_libs": [
+        "Adafruit_CircuitPython_NeoPixel",
+        "Adafruit_CircuitPython_DisplayIO_SSD1306",
+        "Adafruit_CircuitPython_Display_Text"
+    ],
+    "default_files": [
+        {
+            "name": "main.py",
+            "content": "./pegboards/pegboards/keyboards/lulu-L/main.py"
+        },
+        {
+            "name": "kb.py",
+            "content": "./pegboards/pegboards/keyboards/lulu-L/kb.py"
+        },
+        {
+            "name": "layout.json",
+            "content": "./pegboards/pegboards/keyboards/lulu-L/layout.json"
+        }
+    ]
+}

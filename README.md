@@ -91,6 +91,20 @@ Above is all that I have implemented But if you want to make random changes to t
 * add colors to the logs (just the python parts)
 * inject custom code into circuitpython/supervisor/shared/filesystem.c to change the drive name and default code after we are freezing in kmk we will be able to have a u2f that is for cornes and it comes typing and working perfectly
 
+## Road map
+So I have another project that is getting close to done, after that I will get this done.
+
+Make a new path that can take a json as an argument eg:
+``` json
+{
+    "board":"boardsource_nice_nano",
+    "frozen_libs":["adafruit_neopixle","adafruit_ble","kmk"],
+    "default_files":[{"name":"main.py","content":"full default main.py here"},{"name":"kb.py","content":"full default kb.py here"}]
+}
+```
+This  will then go and make a u2f with all the libs frozen in and main.py and kb.py already on the drive.
+Next its a simple task of making a web front end that will let you build this json and send it to the server.
+
 
 
 
