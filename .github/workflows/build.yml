@@ -8,7 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
+      - name: install
+        run: pipenv install
       - name: run build script
         run: make run
 
