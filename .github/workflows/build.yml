@@ -13,7 +13,7 @@ jobs:
       - name: install
         run: pipenv install
       - name: run build script
-        run: make run
+        run: pipenv run make run
 
       - name: look
         run: ls -la build_out/
