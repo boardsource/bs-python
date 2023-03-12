@@ -1,9 +1,8 @@
 name: build_mpy
 on:
-  push
-  workflow_dispatch
-  repository_dispatch:
-    types: [webhook]
+  - push
+  - workflow_dispatch
+  - repository_dispatch
 
 jobs:
   build:
