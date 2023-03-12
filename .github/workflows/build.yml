@@ -1,7 +1,7 @@
 name: build_mpy
 on:
   push
-  workflow_dispatch:
+  workflow_dispatch
 
     # Allows external webhook trigger
   repository_dispatch:
