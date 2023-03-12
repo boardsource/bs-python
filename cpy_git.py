@@ -7,7 +7,6 @@ REPO_URL = "https://github.com/adafruit/circuitpython.git"
 KMK_REPO_URL = "https://github.com/boardsource/peg_kmk_firmware.git"
 BRANCH = "8.0.x"
 FROZEN_REPO_LIST = ["https://github.com/adafruit/Adafruit_CircuitPython_DisplayIO_SSD1306.git",
-"https://github.com/adafruit/Adafruit_CircuitPython_PIOASM.git",
 "https://github.com/boardsource/peg_kmk_firmware.git"
 ]
 
