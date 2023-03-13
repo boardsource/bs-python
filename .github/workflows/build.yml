@@ -26,8 +26,7 @@ jobs:
         with:
           name: uf2
           path: build_out
-
-       - name: Release
-         uses: softprops/action-gh-release@v1
-         with:
-           files: build_out/*.uf2
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build_out/*.uf2
