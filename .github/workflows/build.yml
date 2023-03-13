@@ -1,8 +1,9 @@
-name: build
+name: build_mpy
 on:
-  repository_dispatch:
-    types: [on-demand]
-  push
+  - push
+  - workflow_dispatch
+  - repository_dispatch
+
 jobs:
   build:
     runs-on: ubuntu-latest
