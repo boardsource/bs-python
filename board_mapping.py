@@ -3,7 +3,7 @@ import shutil
 
 board_dir="./bs_python_boards"
 cpy_dir = "./cpy/circuitpython"
-build_script= "#!/bin/bash\n"
+build_script= '#!/bin/bash\nmake update-frozen-modules\necho "=============BUILDING================"\n'
 post_build_script= "#!/bin/bash\n"
 def generate_build_script():
     build_script_path= f'{cpy_dir}/dockerbuildcmd.sh'

@@ -1,0 +1,32 @@
+name: build_mpy
+on:
+  - push
+  - workflow_dispatch
+  - repository_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: pipenv install
+        run: pip install pipenv
+      - name: install
+        run: pipenv install
+      - name: run build script
+        run: pipenv run make run
+
+      - name: look
+        run: ls -la build_out/
+
+      - name: Archive
+        uses: actions/upload-artifact@v3
+        with:
+          name: uf2
+          path: build_out
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build_out/*.uf2

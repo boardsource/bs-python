@@ -4,10 +4,11 @@ import shutil
 PATH = "./cpy/circuitpython"
 KMK_PATH = "./kmk/kmk_firmware"
 REPO_URL = "https://github.com/adafruit/circuitpython.git"
-KMK_REPO_URL = "https://github.com/KMKfw/kmk_firmware"
-BRANCH = "7.2.x"
+KMK_REPO_URL = "https://github.com/boardsource/peg_kmk_firmware.git"
+BRANCH = "8.0.x"
 FROZEN_REPO_LIST = ["https://github.com/adafruit/Adafruit_CircuitPython_DisplayIO_SSD1306.git",
-"https://github.com/adafruit/Adafruit_CircuitPython_SSD1306.git"]
+"https://github.com/boardsource/peg_kmk_firmware.git"
+]
 
 def clean_dir():    
     try:
@@ -35,4 +36,4 @@ def git_checkout():
     repo.git.checkout(BRANCH)
     kmk_repo = git.Repo.clone_from(KMK_REPO_URL, KMK_PATH)
     add_frozen_lib(repo)
-    move_kmk()
+    # move_kmk()

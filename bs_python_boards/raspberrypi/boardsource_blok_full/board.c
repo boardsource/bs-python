@@ -3,7 +3,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2017 Scott Shawcroft for Adafruit Industries
+ * Copyright (c) 2021 Scott Shawcroft for Adafruit Industries
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +25,9 @@
  */
 
 #include "supervisor/board.h"
+#include "shared-bindings/microcontroller/Pin.h"
+#include "src/rp2_common/hardware_gpio/include/hardware/gpio.h"
+#include "supervisor/shared/board.h"
 
 void board_init(void) {
 }
@@ -34,7 +37,8 @@ bool board_requests_safe_mode(void) {
 }
 
 void reset_board(void) {
-
+    // turn off any left over LED
+    // board_reset_user_neopixels(&pin_GPIO29, 62);
 }
 
 void board_deinit(void) {

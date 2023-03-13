@@ -3,8 +3,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 Glenn Ruben Bakke
- * Copyright (c) 2018 Dan Halbert for Adafruit Industries
+ * Copyright (c) 2021 Scott Shawcroft for Adafruit Industries
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,21 +24,22 @@
  * THE SOFTWARE.
  */
 
-#include "nrfx/hal/nrf_gpio.h"
+#include "supervisor/board.h"
+#include "shared-bindings/microcontroller/Pin.h"
+#include "src/rp2_common/hardware_gpio/include/hardware/gpio.h"
+#include "supervisor/shared/board.h"
 
-#define MICROPY_HW_BOARD_NAME       "nice!nano"
-#define MICROPY_HW_MCU_NAME         "nRF52840"
+void board_init(void) {
+}
 
-#define MICROPY_HW_LED_STATUS       (&pin_P0_15)
+bool board_requests_safe_mode(void) {
+    return false;
+}
 
-#define BOARD_HAS_CRYSTAL 1
+void reset_board(void) {
+    // turn off any left over LED
+    board_reset_user_neopixels(&pin_GPIO29, 62);
+}
 
-#define DEFAULT_I2C_BUS_SCL     (&pin_P0_20)
-#define DEFAULT_I2C_BUS_SDA     (&pin_P0_17)
-
-#define DEFAULT_SPI_BUS_SCK     (&pin_P1_13)
-#define DEFAULT_SPI_BUS_MOSI    (&pin_P0_10)
-#define DEFAULT_SPI_BUS_MISO    (&pin_P1_11)
-
-#define DEFAULT_UART_BUS_RX     (&pin_P0_08)
-#define DEFAULT_UART_BUS_TX     (&pin_P0_06)
+void board_deinit(void) {
+}
